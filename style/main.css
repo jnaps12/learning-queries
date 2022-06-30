@@ -1,0 +1,45 @@
+body{ 
+  margin: 0px;
+}
+header{
+  background-color: rgb(225, 225, 239);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0px 50px;
+  height: 60px;
+  align-items: center;
+}
+
+header .logo{
+  display: flex;
+  align-items: center;
+}
+
+
+header .actions a{
+  margin-left: 10px;
+  display: inline-block;
+  color: white;
+  background-color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 140px;
+  height: 40px;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 40px;
+}
+
+
+
+
+
+
+
+
+header .logo-texto{
+  font-size: 2rem;
+  align-self: center;
+  margin-left: 5px;
+}
