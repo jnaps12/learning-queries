@@ -1,0 +1,74 @@
+.login{
+  /* background-color: rgb(223, 209, 207); */
+  min-height: 700px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-items: center;
+  align-content: center;
+  margin-bottom: 50px;
+}
+
+.login-img{
+  margin: 0 auto;
+}
+
+.login-texto{
+  font-size: 4rem;
+  display: inline-block;
+  margin: 30px 0;
+}
+
+
+.login-title{
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.form-login {
+  width: 100%;
+  text-align: center;
+}
+
+#email{
+  display: inline-block;
+  width: 360px;
+  height: 26px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+#password{
+  display: inline-block;
+  width: 360px;
+  height: 26px;
+  margin-bottom: 10px;
+}
+
+#button-entrar{
+  margin-right: 15px;
+  display: inline-block;
+  color: white;
+  background-color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 140px;
+  height: 40px;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 40px;
+}
+
+#button-cadastrar{
+  display: inline-block;
+  color: white;
+  background-color: #5f5dee;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 140px;
+  height: 40px;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 40px;
+}
+

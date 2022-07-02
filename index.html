@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./style/main.css">
+  <link rel="stylesheet" href="./style/login.css">
   <title>Learning Queries</title>
 </head>
 <body>
@@ -20,23 +21,29 @@
       </div>
   </header>
 
-  <section class="login">
-    <div class="logo-login">
-      <img src="" alt="">
-      <h1>login</h1>
-    </div>
+  <div class="container">
+    <section class="login">
+      <div class="logo-login">
+        <img class="login-img" src="./imgs/icon-sql.svg" alt="Logo do learning queries" width="250px">
+        <span class="login-texto">Learning Queries</span>
+      </div>
 
-    <div class="form">
-      <label for="email">Email</label>
-      <input type="email" name="email" id="email">
+      <div class="form-login">
+        <p class="login-title">Login</p>
+        <label for="email">Email</label> <br>
+        <input type="email" name="email" id="email">
 
-      <label for="senha">Senha</label>
-      <input type="password">
+        <br>
 
-      <a href="#">Entrar</a>
-      <a href="">Cadastre-se</a>
-    </div>
-  </section>
+        <label for="senha">Senha</label> <br>
+        <input type="password" name="password" id="password">
+        <br>
+
+        <a id="button-entrar" href="#">Entrar</a>
+        <a id="button-cadastrar" href="">Cadastre-se</a>
+      </div>
+    </section>
+  </div>
 
   <hr>
 
