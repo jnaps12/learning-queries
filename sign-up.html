@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,17 +10,17 @@
   <link rel="stylesheet" href="./style/footer.css">
   <title>Learning Queries</title>
 </head>
+
 <body>
   <header>
-      <div class="logo">
-        <img class="logo-img" src="./imgs/icon-sql.svg" alt="Logo do learning queries" width="50px">
-        <span class="logo-texto">Learning Queries</span>
-      </div>
+    <div class="logo">
+      <img class="logo-img" src="./imgs/icon-sql.svg" alt="Logo do learning queries" width="50px">
+      <span class="logo-texto">Learning Queries</span>
+    </div>
 
-      <div class="actions">
-        <a class="button" href="">Entrar</a>
-        <a class="button" href="./sign-up.html">Cadastre-se</a>
-      </div>
+    <div class="actions">
+      <a class="button" href="">Entrar</a>
+    </div>
   </header>
 
   <div class="container">
@@ -30,18 +31,25 @@
       </div>
 
       <div class="form-login">
-        <p class="login-title">Login</p>
+        <p class="login-title">Cadastro</p>
         <label for="email">Email</label> <br>
         <input class="field" type="email" name="email" id="email">
-
         <br>
 
+        
+        <label for="name">Nome</label> <br>
+        <input class="field" type="name" name="name" id="name">
+        <br>
+        
         <label for="senha">Senha</label> <br>
         <input class="field" type="password" name="password" id="password">
         <br>
 
-        <a id="button-entrar" href="./logged-1.html">Entrar</a>
-        <a id="button-cadastrar" href="./sign-up.html">Cadastre-se</a>
+        <label for="confirm-senha">Confirmar Senha</label> <br>
+        <input class="field" type="password" name="confirm-password" id="confirm-password">
+        <br>
+
+        <a id="button-entrar" href="./index.html">Enviar</a>
       </div>
     </section>
   </div>
@@ -50,4 +58,5 @@
     Developed by Junior Pinheiro, 2022.
   </footer>
 </body>
+
 </html>

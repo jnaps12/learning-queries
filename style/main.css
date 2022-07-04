@@ -42,19 +42,25 @@ header .actions a{
   line-height: 40px;
 }
 
+.field{
+  display: inline-block;
+  width: 360px;
+  height: 26px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
 a.button:nth-child(2) {
     background: #5f5dee;
 }
-
-
-
-
-
-
 
 
 header .logo-texto{
   font-size: 2rem;
   align-self: center;
   margin-left: 5px;
+}
+
+.selected{
+  border-bottom: 2px solid tomato;
 }

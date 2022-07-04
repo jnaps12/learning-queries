@@ -30,20 +30,6 @@
   text-align: center;
 }
 
-#email{
-  display: inline-block;
-  width: 360px;
-  height: 26px;
-  border-radius: 5px;
-  margin-bottom: 20px;
-}
-
-#password{
-  display: inline-block;
-  width: 360px;
-  height: 26px;
-  margin-bottom: 10px;
-}
 
 #button-entrar{
   margin-right: 15px;
