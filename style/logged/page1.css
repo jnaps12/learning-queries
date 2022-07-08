@@ -70,3 +70,11 @@
   background-color: rgb(160, 160, 160);
 
 }
+
+.intermediary{
+  display: none;
+}
+
+.hard{
+  display: none;
+}
