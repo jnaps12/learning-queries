@@ -22,3 +22,51 @@
   color: black;
   font-size: 2rem;
 }
+
+.sub-title-questions{
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 2.2rem;
+
+}
+
+.questions{
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  gap: 90px;
+  flex-wrap: wrap;
+}
+
+.question{
+  display: inline-block;
+  text-align: center;
+
+}
+
+
+.box{
+  border: 2px solid tomato;
+  border-radius: 4px;
+  color: tomato;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto;
+}
+
+.box:hover{
+  color: tomato;
+  background-color: rgb(251, 214, 208);
+}
+
+
+
+.not-available{
+  border-color: gray;
+  background-color: rgb(160, 160, 160);
+}
+
+.not-available:hover{
+  background-color: rgb(160, 160, 160);
+
+}
