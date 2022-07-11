@@ -1,12 +1,106 @@
-.questions-title{
-  text-align: center;
+p {
+  margin: 0px 0px;
 }
-.questions-title{
+.container {
+  margin-top: 0.5rem;
+}
+.questions-title {
+  text-align: center;
   font-size: 4rem;
 }
 
-.sub-title-questions{
+.sub-title-questions {
+  text-align: center;
+  font-size: 2.2rem;
+}
+
+.board {
   text-align: center;
   margin-top: 1rem;
-  font-size: 2.2rem;
+}
+
+.question-informations {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.question-informations img {
+  margin: 0px auto;
+}
+
+.dropzone {
+  border: 2px solid tomato;
+  max-width: 1000px;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 4px;
+  display: flex;
+}
+
+.dropzone .card{
+  margin: 10px 5px;
+}
+
+.answers {
+  max-width: 1000px;
+  border-bottom: 2px solid tomato;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 1.5rem;
+}
+
+.card {
+  border: 1px solid black;
+  height: 50px;
+  width: 100px;
+  line-height: 50px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.card:hover{
+  background-color: rgb(251, 214, 208);
+  cursor: grab;
+}
+
+.buttons{
+  margin-top: 1rem;
+  text-align: center;
+}
+
+#button-return{
+  margin-right: 15px;
+  display: inline-block;
+  color: white;
+  background-color: tomato;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 140px;
+  height: 40px;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 40px;
+}
+
+#button-confirm{
+  display: inline-block;
+  color: white;
+  background-color: #5f5dee;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 140px;
+  height: 40px;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 40px;
+}
+
+#button-return:hover{
+  border: 1px solid tomato;
+}
+
+#button-confirm:hover{
+  border: 1px solid #5f5dee;
 }
