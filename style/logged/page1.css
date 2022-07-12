@@ -56,6 +56,7 @@
 .box:hover{
   color: tomato;
   background-color: rgb(251, 214, 208);
+  border: 2px solid tomato
 }
 
 
@@ -76,4 +77,9 @@
 
 .hard{
   display: none;
+}
+
+.done{
+  background-color: rgb(168 167 240);
+  border-color: #5f5dee;
 }

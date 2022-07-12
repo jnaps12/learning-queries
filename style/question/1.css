@@ -28,7 +28,7 @@ p {
   margin: 0px auto;
 }
 
-.dropzone {
+.dropzone-style {
   border: 2px solid tomato;
   max-width: 1000px;
   height: 100px;
@@ -37,7 +37,7 @@ p {
   display: flex;
 }
 
-.dropzone .card{
+.dropzone-style .card{
   margin: 10px 5px;
 }
 
@@ -103,4 +103,15 @@ p {
 
 #button-confirm:hover{
   border: 1px solid #5f5dee;
+}
+
+.alerts{
+  background-color: tomato;
+  width: 500px;
+  margin: 20px auto;
+  height: 30px;
+  line-height: 30px;
+  color: white;
+  border-radius: 4px;
+  text-align: center;
 }
