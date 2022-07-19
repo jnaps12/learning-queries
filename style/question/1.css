@@ -105,6 +105,20 @@ p {
   border: 1px solid #5f5dee;
 }
 
+#button-reset{
+  display: inline-block;
+  color: white;
+  background-color: rgb(65, 65, 65);
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 140px;
+  height: 40px;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 40px;
+  margin-top: 20px;
+}
+
 .alerts{
   background-color: tomato;
   width: 500px;

@@ -32,7 +32,7 @@ header .actions a{
   margin-left: 10px;
   display: inline-block;
   color: white;
-  background-color: black;
+  background-color: #5f5dee;
   text-decoration: none;
   text-transform: uppercase;
   width: 140px;
@@ -50,9 +50,7 @@ header .actions a{
   margin-bottom: 20px;
   margin-top: 5px;
 }
-a.button:nth-child(2) {
-    background: #5f5dee;
-}
+
 
 
 header .logo-texto{
