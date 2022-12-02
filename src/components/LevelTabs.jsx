@@ -1,10 +1,11 @@
 import Nav from 'react-bootstrap/Nav';
-import { NavLink, Link } from 'react-router-dom';
-export function LevelTabs() {
+import { Link } from 'react-router-dom';
 
+
+export function LevelTabs() {
   return (
-    <div className="mb-5" defaultActiveKey="easy">
-      <Nav fill variant="tabs">
+    <div className="mb-5">
+      <Nav fill variant="tabs" defaultActiveKey="easy">
         <Nav.Item>
           <Nav.Link eventKey="easy" as={Link} to="/questions/easy">
             Fácil

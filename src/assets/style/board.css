@@ -12,3 +12,25 @@
   margin-bottom: 30px;
 }
 
+.question-card-link{
+  text-decoration: none;
+}
+
+.question-card-link:hover{
+  background-color: rgba(75, 75, 215, 0.632) !important;
+}
+
+.card:hover{
+  background-color: rgba(75, 75, 215, 0.632) !important;
+}
+
+.card-body{
+  padding: 5px !important;
+}
+
+.card-title{
+  color: white !important;
+  margin-bottom: 0px;
+}
+
+

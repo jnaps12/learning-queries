@@ -1,3 +1,5 @@
+import { QuestionGroup } from "../../components/QuestionGroup";
+
 export function EasyQuestions() {
   return (
     <div>
@@ -7,7 +9,7 @@ export function EasyQuestions() {
         }
       }>Fácil</h2>
       <div>
-        
+        <QuestionGroup />
       </div>
     </div>
   );
