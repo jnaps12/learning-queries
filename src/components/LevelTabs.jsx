@@ -1,25 +1,26 @@
 import Nav from 'react-bootstrap/Nav';
-
+import { NavLink, Link } from 'react-router-dom';
 export function LevelTabs() {
+
   return (
-    <div className="mb-5">
+    <div className="mb-5" defaultActiveKey="easy">
       <Nav fill variant="tabs">
         <Nav.Item>
-          <Nav.Link activeKey="easy" eventKey="easy" href="/questions/easy">
+          <Nav.Link eventKey="easy" as={Link} to="/questions/easy">
             Fácil
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
           <Nav.Link
-            activeKey="intermediary"
             eventKey="intermediary"
-            href="/questions/intermediary"
+            as={Link}
+            to="/questions/intermediary"
           >
             Intermediário
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link activeKey="hard" eventKey="hard" href="/questions/hard">
+          <Nav.Link eventKey="hard" as={Link} to="/questions/hard">
             Difícil
           </Nav.Link>
         </Nav.Item>

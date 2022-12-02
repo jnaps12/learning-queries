@@ -5,3 +5,10 @@
   text-align: center;  
 }
 
+.Board h2{
+  text-align: center;
+  width: 200px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+

@@ -1,12 +1,14 @@
-
-
-export function EasyQuestions(){
-
-
+export function EasyQuestions() {
   return (
     <div>
-      <h1>easy questions.</h1>
-      <p>aqui vai ter um box de question group</p>
+      <h2 style={
+        {
+          borderBottom: '1px solid blue'
+        }
+      }>Fácil</h2>
+      <div>
+        
+      </div>
     </div>
   );
 }
