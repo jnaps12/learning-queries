@@ -1,9 +1,20 @@
 import { Container } from 'react-bootstrap';
 import '../assets/style/board.css';
 import { LevelTabs } from '../components/LevelTabs';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 export function BoardQuestions() {
+  const [url, setUrl] = useState(window.location.pathname);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (url === '/questions' || url === '/questions/') {
+      navigate('/questions/easy');
+      setUrl('/questions/easy');
+    }
+  }, [url]);
+
   return (
     <div className="Board">
       <h1>Questões</h1>

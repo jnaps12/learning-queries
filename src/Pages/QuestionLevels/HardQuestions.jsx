@@ -1,13 +1,24 @@
+import { QuestionGroup } from "../../components/QuestionGroup";
+
 export function HardQuestions() {
   return (
-    <div>
-      <h2 style={
-        {
-          borderBottom: '1px solid red'
-        }
-      }>Difícil</h2>
-      <p>aqui vai ter um box de question group</p>
-    </div>
-  ) 
+    <>
+      <h2
+        style={{
+          borderBottom: '1px solid red',
+        }}
+      >
+        Difícil
+      </h2>
+      <div className="question-groups">
+        <QuestionGroup
+          id="3"
+          name=".."
+          icon="https://www.svgrepo.com/show/430020/bat.svg"
+          difficulty="hard"
+        />
+      </div>
+    </>
+  ); 
   
 }

@@ -13,16 +13,13 @@ export function ErrorPage() {
     <div id="error-page" style={style}>
       <h1>Oops!</h1>
       <p>Desculpe, um erro acabou de acontecer.</p>
-      <p>
+      <h3>
         <i>{error.statusText || error.message}</i>
-      </p>
+      </h3>
 
       <h2>
-        <Link to='/'>
-          {`Go back to <Home />`}
-        </Link>
+        <Link to="/">{`Go back to <Home />`}</Link>
       </h2>
-      
     </div>
   );
 }

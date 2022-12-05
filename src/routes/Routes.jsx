@@ -7,6 +7,7 @@ import { Teste } from '../components/Teste';
 import { EasyQuestions } from '../Pages/QuestionLevels/EasyQuestions';
 import { IntermediaryQuestions } from '../Pages/QuestionLevels/IntermediaryQuestions';
 import { HardQuestions } from '../Pages/QuestionLevels/HardQuestions';
+import { Question } from '../Pages/Question';
 
 export const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
             element: <HardQuestions />,
           },
         ],
+      },
+      {
+        path: '/questions/:difficulty/:id',
+        element: <Question />,
       },
     ],
   },

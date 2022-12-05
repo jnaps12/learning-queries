@@ -16,12 +16,9 @@
   text-decoration: none;
 }
 
-.question-card-link:hover{
-  background-color: rgba(75, 75, 215, 0.632) !important;
-}
-
 .card:hover{
   background-color: rgba(75, 75, 215, 0.632) !important;
+  border-radius: 4px !important;
 }
 
 .card-body{
@@ -29,8 +26,13 @@
 }
 
 .card-title{
-  color: white !important;
+  color: black !important;
   margin-bottom: 0px;
+}
+
+.question-groups{
+  display: flex;
+  justify-content: center;
 }
 
 

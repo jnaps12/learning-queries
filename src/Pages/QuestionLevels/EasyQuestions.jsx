@@ -1,16 +1,18 @@
-import { QuestionGroup } from "../../components/QuestionGroup";
+import { QuestionGroup } from '../../components/QuestionGroup';
 
 export function EasyQuestions() {
   return (
-    <div>
-      <h2 style={
-        {
-          borderBottom: '1px solid blue'
-        }
-      }>Fácil</h2>
-      <div>
-        <QuestionGroup />
+    <>
+      <h2
+        style={{
+          borderBottom: '1px solid blue',
+        }}
+      >
+        Fácil
+      </h2>
+      <div className="question-groups">
+        <QuestionGroup id='1' name='Select' icon='https://www.svgrepo.com/show/430020/bat.svg' difficulty='easy'/>
       </div>
-    </div>
+    </>
   );
 }

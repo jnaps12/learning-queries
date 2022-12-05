@@ -1,43 +1,36 @@
-import React from 'react'
+import React from 'react';
 import Card from 'react-bootstrap/Card';
-import { Link } from 'react-router-dom';
-export function QuestionGroup() {
-  return (
-    // <Card border="primary" style={{ width: '18rem' }}>
-    //   <Card.Header>Header</Card.Header>
-    //   <Card.Body>
-    //     <Card.Title>Primary Card Title</Card.Title>
-    //     <Card.Text>
-    //       Some quick example text to build on the card title and make up the
-    //       bulk of the card's content.
-    //     </Card.Text>
-    //   </Card.Body>
-    // </Card>
+import { Link, useNavigate } from 'react-router-dom';
 
-    <Link className='question-card-link'>
-      <Card bg="primary" style={{ width: '6rem' }} className="text-center">
+export function QuestionGroup({ id, name, icon, difficulty, done }) {
+
+  const navigate = useNavigate();
+
+  function handleClick(){
+    const data = {
+      id: 1,
+      query: 'Select * from Irineu',
+      difficulty: difficulty,
+      thumb_url:
+        'https://imgs.search.brave.com/fnd-zwAf4xDKmew6PXnrwqrOy5CntNeiVYIe-GPlVDg/rs:fit:711:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5M/SUlBb0NTU0d2OEVC/c1Y5OXFlT3lBSGFF/OCZwaWQ9QXBp',
+      titile: 'Select 1',
+      description: 'Busque o que se pede'
+    };
+  }
+
+
+  return (
+    <Link className="question-card-link" to={`/questions/${difficulty}/${id}`} onClick={handleClick}>
+      <Card style={{ width: '6rem' }} className="text-center" border="primary">
         <Card.Img
           variant="top"
-          src="/logo_blackbg.svg"
+          src={icon}
           style={{ width: '3rem', margin: '5px auto 0 auto' }}
         />
         <Card.Body>
-          <Card.Title>Select</Card.Title>
+          <Card.Title>{name}</Card.Title>
         </Card.Body>
       </Card>
     </Link>
-
-    // <Card bg='primary' style={{ width: '8rem' }}>
-    //   <Card.Header className="text-center">
-    //     <Card.Img
-    //       variant="top"
-    //       src="/logo_blackbg.svg"
-    //       style={{ width: '3rem', margin: '0 auto' }}
-    //     />
-    //   </Card.Header>
-    //   <Card.Body className="text-center">
-    //     <Card.Title>Select</Card.Title>
-    //   </Card.Body>
-    // </Card>
   );
 }
