@@ -13,18 +13,12 @@
   color: black !important;
 }
 
-.droppable{
-  margin: 10px auto;
-  width: 90%;
-  border: 1px solid black;
-  height: 200px;
-  border-radius: 5px;
+
+.actions{
+  margin: 20px auto 10px auto;
+  text-align: center;
 }
 
-.draggable{
-  margin: 0 auto;
-  width: 90%;
-  border: 1px solid black;
-  height: 80px;
-  border-radius: 5px;
+.actions button{
+  margin-left: 10px;
 }
