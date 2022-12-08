@@ -4,7 +4,6 @@ import { Link, useNavigate } from 'react-router-dom';
 
 export function QuestionGroup({ id, name, icon, difficulty, done }) {
 
-  const navigate = useNavigate();
 
   function handleClick(){
     const data = {

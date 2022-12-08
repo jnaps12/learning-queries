@@ -8,6 +8,8 @@ import { EasyQuestions } from '../Pages/QuestionLevels/EasyQuestions';
 import { IntermediaryQuestions } from '../Pages/QuestionLevels/IntermediaryQuestions';
 import { HardQuestions } from '../Pages/QuestionLevels/HardQuestions';
 import { Question } from '../Pages/Question';
+import { QuestionGroup } from '../components/QuestionGroup';
+import { QuestionGroupPage } from '../Pages/QuestionGroupPage';
 
 export const router = createBrowserRouter([
   {
@@ -34,8 +36,14 @@ export const router = createBrowserRouter([
         ],
       },
       {
-        path: '/questions/:difficulty/:id',
-        element: <Question />,
+        path: '/questions/:difficulty/:groupid',
+        element: <QuestionGroupPage />,
+        children: [
+          {
+            path: '/questions/:difficulty/:groupid/',
+            element: <Question />,
+          },
+        ],
       },
     ],
   },

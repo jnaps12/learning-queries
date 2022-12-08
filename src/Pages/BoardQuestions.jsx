@@ -9,7 +9,7 @@ export function BoardQuestions() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (url === '/questions' || url === '/questions/') {
+    if (url === '/questions' || url === '/question/') {
       navigate('/questions/easy');
       setUrl('/questions/easy');
     }

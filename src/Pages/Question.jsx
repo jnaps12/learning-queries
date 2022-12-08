@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Alert, Button } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Figure from 'react-bootstrap/Figure';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import { IoChevronBack, IoChevronForward } from 'react-icons/io5';
@@ -23,7 +23,7 @@ import { GenerateQuery } from '../data/data';
 
 const query = GenerateQuery();
 
-export function Question({ data }) {
+export function Question() {
   const [items, setItems] = useState({
     dropzone: [],
     answers: query,
@@ -128,13 +128,10 @@ export function Question({ data }) {
   };
 
   // after dnd
-  const { difficulty, id } = useParams();
-  const now = (1 / 3) * 100;
+  const { difficulty, groupid, id } = useParams(); 
+  const now = (2 / 3) * 100;
   return (
     <Container>
-      <h1 align="center" className="mt-5">
-        Select 1
-      </h1>
       <ProgressBar now={now} animated label={`1/3`} />
 
       <div className="question-box mt-5">
@@ -159,30 +156,28 @@ export function Question({ data }) {
             {/* {Object.keys(items).map((group) => (
               <Droppable id={group} items={items[group]} key={group} />
             ))} */}
-            <Droppable
-              id="dropzone"
-              items={items.dropzone}
-            />
-            <Droppable
-              id="answers"
-              items={items.answers}
-            />
+            <Droppable id="dropzone" items={items.dropzone} />
+            <Droppable id="answers" items={items.answers} />
           </div>
           <DragOverlay>
             {activeId ? <SortableItem id={activeId} /> : null}
           </DragOverlay>
         </DndContext>
-            {console.log(items.dropzone)}
-            {console.log(items.answers)}
+        {console.log(items.dropzone)}
+        {console.log(items.answers)}
         <div className="actions">
-          <Button variant="danger" type="button" align="center">
-            <IoChevronBack />
-            Cancelar
-          </Button>
-          <Button variant="primary" type="button" align="center">
-            Avançar
-            <IoChevronForward />
-          </Button>
+          <Link to={`/questions/${difficulty}/${groupid}`}>
+            <Button variant="danger" type="button" align="center">
+              <IoChevronBack />
+              Cancelar
+            </Button>
+          </Link>
+          <Link>
+            <Button variant="primary" type="button" align="center">
+              Avançar
+              <IoChevronForward />
+            </Button>
+          </Link>
         </div>
       </div>
     </Container>
