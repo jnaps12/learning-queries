@@ -128,11 +128,11 @@ export function Question() {
   };
 
   // after dnd
-  const { difficulty, groupid, id } = useParams(); 
-  const now = (2 / 3) * 100;
+  const { difficulty, groupid, id, questionid } = useParams(); 
+  const now = (1 / 3) * 100;
   return (
     <Container>
-      <ProgressBar now={now} animated label={`1/3`} />
+      <ProgressBar now={now} animated />
 
       <div className="question-box mt-5">
         <Alert variant="primary" align="center">
@@ -166,7 +166,7 @@ export function Question() {
         {console.log(items.dropzone)}
         {console.log(items.answers)}
         <div className="actions">
-          <Link to={`/questions/${difficulty}/${groupid}`}>
+          <Link to={`/questions/${difficulty}/${groupid}/question/${questionid}`}>
             <Button variant="danger" type="button" align="center">
               <IoChevronBack />
               Cancelar
