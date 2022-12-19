@@ -1,23 +1,16 @@
-import { Header } from './components/Header'
-import { Outlet, useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import React from 'react'
-import { AuthContext } from './providers/auth';
+import { Outlet } from 'react-router-dom';
+import React from 'react';
+import { Main } from './layouts/Main';
 
 function App() {
 
-  const {token, setToken} = React.useContext(AuthContext);
-
-  if(!token){
-    
-  }
-
-    return (
+  return (
     <>
-      <Header />
-      <Outlet />
+      <Main>
+        <Outlet />
+      </Main>
     </>
   );
 }
 
-export default App
+export default App;

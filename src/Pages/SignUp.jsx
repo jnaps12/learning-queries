@@ -1,7 +1,11 @@
-import React from 'react'
+import React from 'react';
+import { Main } from '../layouts/Main';
+
 
 export function SignUp() {
   return (
-    <h1>SignUp</h1>
+    <Main>
+      <h1>SignUp</h1>
+    </Main>
   )
 }

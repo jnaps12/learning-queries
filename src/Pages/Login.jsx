@@ -1,28 +1,33 @@
 import React from "react";
-import { AuthContext } from "../providers/auth";
+import { Main } from "../layouts/Main";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
 
 
 export function Login(){
-  const {token, setToken} = React.useContext(AuthContext);
-
-  console.log(token);
-
   return (
-    <div>
-      <h1>Login</h1>
-      <form>
-        <label>
-          <p>Username</p>
-          <input type="text" />
-        </label>
-        <label>
-          <p>Password</p>
-          <input type="password" />
-        </label>
-        <div>
-          <button type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
+    <Main>
+      <Form>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control type="email" placeholder="Enter email" />
+          <Form.Text className="text-muted">
+            We'll never share your email with anyone else.
+          </Form.Text>
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="password" placeholder="Password" />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+          <Form.Check type="checkbox" label="Check me out" />
+        </Form.Group>
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
+      </Form>
+    </Main>
   );
 }
