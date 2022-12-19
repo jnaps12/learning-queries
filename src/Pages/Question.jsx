@@ -19,7 +19,7 @@ import {
 } from '@dnd-kit/core';
 import { sortableKeyboardCoordinates } from '@dnd-kit/sortable';
 import { Droppable } from '../utils/dndkit/Droppable';
-import { GenerateQuery } from '../data/data';
+import { GenerateQuery } from '../api/data';
 
 const query = GenerateQuery();
 
