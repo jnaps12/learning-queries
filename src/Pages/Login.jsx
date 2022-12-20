@@ -14,9 +14,11 @@ export function Login() {
   const errRef = useRef();
 
   const [user, setUser] = useState('');
-  const [pwd, setPwd] = useState('');
+  const [password, setPassword] = useState('');
   const [errMsg, setErrMsg] = useState('');
   const [success, setSuccess] = useState(false);
+
+  const [loading, setLoading] = useState();
 
   useEffect(() => {
     userRef.current.focus();
@@ -24,38 +26,52 @@ export function Login() {
 
   useEffect(() => {
     setErrMsg('');
-  }, [user, pwd]);
+  }, [user, password]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(
         LOGIN_URL,
-        JSON.stringify({ user, pwd }),
+        JSON.stringify({ user, password }),
         {
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+          },
           withCredentials: true,
         }
       );
       console.log(JSON.stringify(response?.data));
       // console.log(JSON.stringify(response));
       const accessToken = response?.data?.accessToken;
-      const roles = response?.data?.roles;
-      setAuth({ uset, pwd, roles, accessToken});
+      setAuth({ user, password, accessToken });
       setUser('');
-      setPwd('');
+      setPassword('');
       setSuccess(true);
+      console.log('user logado');
     } catch (err) {
-      if(!err?.response){
+      if (!err?.response) {
         setErrMsg('No server Response');
-      }else if(err.response?.status === 400){
+      } else if (err.response?.status === 400) {
         setErrMsg('Missing username or password');
-      } else if(err.response?.status === 401){
+      } else if (err.response?.status === 401) {
         setErrMsg('Unauthorized');
-      }else{
+      } else {
         setErrMsg('Login Failed');
       }
       errRef.current.focus();
+    }
+  };
+
+  const handleLogin = async (event) => {
+    event.preventDefault();
+    try {
+      setLoading(true);
+      alert('Login');
+      setLoading(false);
+    } catch (err) {
+      alert('Algo deu errado com o Login' + err);
     }
   };
 
@@ -89,15 +105,20 @@ export function Login() {
           <Form.Control
             type="password"
             placeholder="Password"
-            onChange={(e) => setPwd(e.target.value)}
-            value={pwd}
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
             required
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group>
-        <Button className="mr-3" variant="primary" type="submit">
+        <Button
+          disabled={loading}
+          className="mr-3"
+          variant="primary"
+          type="submit"
+        >
           Submit
         </Button>
         <Button variant="secondary">sign up</Button>
