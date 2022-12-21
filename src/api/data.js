@@ -1,5 +1,30 @@
-export function GenerateQuery() {
-  let query = ['SELECT', 'usuarios', '*', 'FROM'];
+import axios from './axios';
+import useAxios from '../hooks/useAxios';
+
+function getQuestion(questionid) {
+  const [query, error, loading] = useAxios({
+    axiosInstance: axios,
+    method: 'GET',
+    url: '/question/2',
+    requestConfig: {
+      headers: {
+        'Content-Language': 'pt-BR',
+      },
+    },
+  });
+  
+  if(!error) console.log(error);
+  if(loading) console.log("Loading...");
+  else return [query, error, loading];
+}
+
+
+export function GenerateQuery(questionid) {
+  let loaded = getQuestion(2);
+  // let rightQuery = !getQuestion(2)[2] && getQuestion(2)[0]?.query;
+  // while ( loaded != false) console.log('not yet');
+  // let query = rightQuery.split(" ");
+  let query = ['a', 'b', 'c'];
 
   const queries = [
     'INNER',
@@ -27,8 +52,7 @@ export function GenerateQuery() {
   return query;
 }
 
-
-function Shuffle(array){
+function Shuffle(array) {
   let currentIndex = array.length,
     randomIndex;
 

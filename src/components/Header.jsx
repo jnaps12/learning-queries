@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
+import { Link } from 'react-router-dom';
 
 export function Header() {
   return (
@@ -24,12 +25,11 @@ export function Header() {
               id='menu'
               variant='info'
               size='sm'
-              title='Username Here'
+              title='teste'
             >
-              <Dropdown.Item eventKey="1" href='/home'>Action</Dropdown.Item>
-              <Dropdown.Item eventKey="2">Perfil</Dropdown.Item>
+              <Dropdown.Item eventKey="1">Perfil</Dropdown.Item>
               <Dropdown.Divider />
-              <Dropdown.Item eventKey="4">Sair</Dropdown.Item>
+              <Dropdown.Item eventKey="2" as={Link} to='/login'>Sair</Dropdown.Item>
             </DropdownButton>
           </Nav>
         </Container>

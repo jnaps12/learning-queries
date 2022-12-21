@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 import axios from '../api/axios';
+import { Link } from 'react-router-dom';
 
 const LOGIN_URL = '/auth';
 
@@ -118,6 +119,8 @@ export function Login() {
           className="mr-3"
           variant="primary"
           type="submit"
+          as={Link}
+          to="/questions"
         >
           Submit
         </Button>

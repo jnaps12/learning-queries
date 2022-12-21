@@ -2,7 +2,7 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import { Link, useNavigate } from 'react-router-dom';
 
-export function QuestionGroup({ id, name, icon, difficulty, done }) {
+export function QuestionGroup({ id, name, icon, difficulty, done, questionid }) {
 
 
   function handleClick(){
@@ -19,7 +19,7 @@ export function QuestionGroup({ id, name, icon, difficulty, done }) {
 
 
   return (
-    <Link className="question-card-link" to={`/questions/${difficulty}/${id}`} onClick={handleClick}>
+    <Link className="question-card-link" to={`/questions/${difficulty}/${id}/question/${questionid}`} onClick={handleClick}>
       <Card style={{ width: '6rem' }} className="text-center" border="primary">
         <Card.Img
           variant="top"

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Container, Alert, Button } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { Container, Alert, Button, Spinner } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import Figure from 'react-bootstrap/Figure';
 import ProgressBar from 'react-bootstrap/ProgressBar';
@@ -19,16 +19,40 @@ import {
 } from '@dnd-kit/core';
 import { sortableKeyboardCoordinates } from '@dnd-kit/sortable';
 import { Droppable } from '../utils/dndkit/Droppable';
-import { GenerateQuery } from '../api/data';
-
-const query = GenerateQuery();
+import SpinnerComponent from '../components/SpinnerComponent';
+import useAxios from 'axios-hooks';
 
 export function Question() {
+  // const [query, error, loading] = useAxios({
+  //   axiosInstance: axios,
+  //   method: 'GET',
+  //   url: '/question/2',
+  //   requestConfig: {
+  //     headers: {
+  //       'Content-Language': 'pt-BR',
+  //     },
+  //   },
+  // });
+
+  const [{ data, loading, error }, refetch] = useAxios(
+    'http://127.0.0.1:3000/question/2'
+  );
+
+  const query = data ? data?.query.split(" ") : ['wait'];
+  
   const [items, setItems] = useState({
     dropzone: [],
-    answers: query,
+    answers: [],
   });
 
+  useEffect(() => {
+    console.log(query)
+    setItems((items) => ({
+      ...items,
+      answers: query,
+    }));
+    console.log(items);
+  },[data]);
 
   const [activeId, setActiveId] = useState();
   // dnd
@@ -128,12 +152,16 @@ export function Question() {
   };
 
   // after dnd
-  const { difficulty, groupid, id, questionid } = useParams(); 
-  const now = (1 / 3) * 100;
+  const { difficulty, groupid, questionid } = useParams();
+  // console.log(difficulty)
+  // console.log(groupid);
+  // console.log(questionid);
+
+  if (loading) return <SpinnerComponent />;
+  if (error) return <h2>{error}</h2>;
+
   return (
     <Container>
-      <ProgressBar now={now} animated />
-
       <div className="question-box mt-5">
         <Alert variant="primary" align="center">
           Observe o Schema abaixo e organize os bloquinhos para completar a
@@ -163,10 +191,8 @@ export function Question() {
             {activeId ? <SortableItem id={activeId} /> : null}
           </DragOverlay>
         </DndContext>
-        {console.log(items.dropzone)}
-        {console.log(items.answers)}
         <div className="actions">
-          <Link to={`/questions/${difficulty}/${groupid}/question/${questionid}`}>
+          <Link to={`/questions/${difficulty}`}>
             <Button variant="danger" type="button" align="center">
               <IoChevronBack />
               Cancelar

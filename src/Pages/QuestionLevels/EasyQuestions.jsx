@@ -11,7 +11,7 @@ export function EasyQuestions() {
         Fácil
       </h2>
       <div className="question-groups">
-        <QuestionGroup id='1' name='Select' icon='https://www.svgrepo.com/show/430020/bat.svg' difficulty='easy'/>
+        <QuestionGroup id='1' name='Select' icon='https://www.svgrepo.com/show/430020/bat.svg' difficulty='easy' questionid='1'/>
       </div>
     </>
   );

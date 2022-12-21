@@ -14,11 +14,7 @@ import { ProtectedRoute } from '../components/ProtectedRoute';
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: (
-      <ProtectedRoute>
-        <App />
-      </ProtectedRoute>
-    ),
+    element: <App />,
     errorElement: <ErrorPage />,
     children: [
       {
