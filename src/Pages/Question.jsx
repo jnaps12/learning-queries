@@ -46,12 +46,11 @@ export function Question() {
   });
 
   useEffect(() => {
-    console.log(query)
     setItems((items) => ({
       ...items,
       answers: query,
     }));
-    console.log(items);
+    // console.log(items);
   },[data]);
 
   const [activeId, setActiveId] = useState();
