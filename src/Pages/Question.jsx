@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Alert, Button, Spinner } from 'react-bootstrap';
-import { Link, useParams } from 'react-router-dom';
+import { redirect, Link, useParams, useNavigate } from 'react-router-dom';
 import Figure from 'react-bootstrap/Figure';
-import ProgressBar from 'react-bootstrap/ProgressBar';
 import { IoChevronBack, IoChevronForward } from 'react-icons/io5';
 
 import SortableItem from '../utils/dndkit/SortableItem';
@@ -21,37 +20,34 @@ import { sortableKeyboardCoordinates } from '@dnd-kit/sortable';
 import { Droppable } from '../utils/dndkit/Droppable';
 import SpinnerComponent from '../components/SpinnerComponent';
 import useAxios from 'axios-hooks';
+import { GenerateQuery } from '../api/data';
 
 export function Question() {
-  // const [query, error, loading] = useAxios({
-  //   axiosInstance: axios,
-  //   method: 'GET',
-  //   url: '/question/2',
-  //   requestConfig: {
-  //     headers: {
-  //       'Content-Language': 'pt-BR',
-  //     },
-  //   },
-  // });
+  const navigate = useNavigate();
+  const { difficulty, groupid, questionid } = useParams();
 
   const [{ data, loading, error }, refetch] = useAxios(
     'http://127.0.0.1:3000/question/2'
   );
 
-  const query = data ? data?.query.split(" ") : ['wait'];
-  
+  const rightQuery = data ? data?.query.split(' ') : [];
+  let query = GenerateQuery(rightQuery);
+
   const [items, setItems] = useState({
     dropzone: [],
     answers: [],
   });
 
+  const [correct, setCorrect] = useState(false);
+  const [incorrect, setIncorrect] = useState(false);
+
   useEffect(() => {
     setItems((items) => ({
       ...items,
-      answers: query,
+      answers: rightQuery,
     }));
     // console.log(items);
-  },[data]);
+  }, [data]);
 
   const [activeId, setActiveId] = useState();
   // dnd
@@ -150,14 +146,24 @@ export function Question() {
     }
   };
 
-  // after dnd
-  const { difficulty, groupid, questionid } = useParams();
-  // console.log(difficulty)
-  // console.log(groupid);
-  // console.log(questionid);
-
   if (loading) return <SpinnerComponent />;
   if (error) return <h2>{error}</h2>;
+
+  function handleAnswer(e) {
+    e.PreventDefault;
+    let dropzoneString = items?.dropzone.join(' ');
+    let correctQuery = [...data?.query].join('');
+
+    if (dropzoneString.toLowerCase() == correctQuery.toLowerCase()) {
+      console.log('boa');
+      setCorrect(() => true);
+      setIncorrect(() => false);
+    } else {
+      console.log('tente novamente');
+      setCorrect(() => false);
+      setIncorrect(() => true);
+    }
+  }
 
   return (
     <Container>
@@ -172,6 +178,11 @@ export function Question() {
             Busque todos os dados da tabela “usuarios” :
           </Figure.Caption>
         </Figure>
+        {incorrect && (
+          <Alert variant="danger  " align="center">
+            A sua query está incorreta, por favor tente novamente.
+          </Alert>
+        )}
 
         <DndContext
           sensors={sensors}
@@ -191,18 +202,45 @@ export function Question() {
           </DragOverlay>
         </DndContext>
         <div className="actions">
-          <Link to={`/questions/${difficulty}`}>
-            <Button variant="danger" type="button" align="center">
-              <IoChevronBack />
-              Cancelar
+          <Button
+            variant="danger"
+            type="button"
+            align="center"
+            as={Link}
+            to={`/questions/${difficulty}`}
+          >
+            <IoChevronBack />
+            Cancelar
+          </Button>
+
+          {correct == false ? (
+            <Button
+              style={{  
+                marginLeft: '10px',
+              }}
+              variant="secondary"
+              type="button"
+              align="center"
+              onClick={handleAnswer}
+            >
+              Veririficar
+              <IoChevronForward />
             </Button>
-          </Link>
-          <Link>
-            <Button variant="primary" type="button" align="center">
+          ) : (
+            <Button
+              style={{
+                marginLeft: '10px',
+              }}
+              variant="primary"
+              type="button"
+              align="center"
+              as={Link}
+              to={`/questions/${difficulty}`}
+            >
               Avançar
               <IoChevronForward />
             </Button>
-          </Link>
+          )}
         </div>
       </div>
     </Container>
