@@ -21,6 +21,8 @@
   height: 7rem;
 }
 
+
+
 .card:hover {
   background-color: rgba(75, 75, 215, 0.632) !important;
   border-radius: 4px !important;
@@ -39,4 +41,9 @@
   display: flex;
   justify-content: center;
   gap: 1rem
+}
+
+.completed{
+  background-color: rgba(75, 75, 215, 0.506) !important;
+  color: white !important;
 }
