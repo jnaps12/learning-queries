@@ -25,13 +25,44 @@ import { BASE_URL } from '../api/axios';
 
 export function Question() {
   const navigate = useNavigate();
-  const { difficulty, questionid } = useParams();
+  const { difficulty, groupid, questionid } = useParams();
 
   const [{ data, loading, error }] = useAxios(
     `${BASE_URL}/question/${questionid}`
   );
 
-  console.log(data);
+  const [
+    { data: patchData, loading: patchLoading, error: patchError },
+    updateData,
+  ] = useAxios({
+    url: `${BASE_URL}/question/${questionid}`,
+    method: 'PATCH',
+    data: {
+      done: true,
+    },
+  });
+
+  const [
+    {
+      data: patchDataGroup,
+      loading: patchLoadingGroup,
+      error: patchErrorGroup,
+    },
+    updateDataGroup,
+  ] = useAxios({
+    url: `${BASE_URL}/question-group/${groupid}`,
+    method: 'PATCH',
+    data: {
+      done: true,
+    },
+  });
+
+  function handleClick() {
+    console.log('cheguei auqi');
+    updateData();
+    updateDataGroup();
+  }
+  // console.log(data);
 
   const rightQuery = data ? data?.query.split(' ') : [];
   let query = GenerateQuery(rightQuery);
@@ -158,11 +189,11 @@ export function Question() {
     let correctQuery = [...data?.query].join('');
 
     if (dropzoneString.toLowerCase() == correctQuery.toLowerCase()) {
-      console.log('boa');
+      // console.log('boa');
       setCorrect(() => true);
       setIncorrect(() => false);
     } else {
-      console.log('tente novamente');
+      // console.log('tente novamente');
       setCorrect(() => false);
       setIncorrect(() => true);
     }
@@ -177,9 +208,7 @@ export function Question() {
         </Alert>
         <Figure align="center" className="question-image">
           <Figure.Image alt="Imagem da tabela" src={data && data.thumbUrl} />
-          <Figure.Caption>
-            {data && data.description}
-          </Figure.Caption>
+          <Figure.Caption>{data && data.description}</Figure.Caption>
         </Figure>
         {incorrect && (
           <Alert variant="danger  " align="center">
@@ -218,7 +247,7 @@ export function Question() {
 
           {correct == false ? (
             <Button
-              style={{  
+              style={{
                 marginLeft: '10px',
               }}
               variant="secondary"
@@ -239,6 +268,7 @@ export function Question() {
               align="center"
               as={Link}
               to={`/questions/${difficulty}`}
+              onClick={handleClick}
             >
               Avançar
               <IoChevronForward />

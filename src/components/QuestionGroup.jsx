@@ -1,25 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import { Link, useNavigate } from 'react-router-dom';
 import useAxios from 'axios-hooks';
 import { BASE_URL } from '../api/axios';
 import SpinnerComponent from './SpinnerComponent';
 
-export function QuestionGroup({
-  id,
-  name,
-  icon,
-  difficulty,
-  done,
-}) {
-  // buscar questões a partir do id do group;
-
+export function QuestionGroup({ id, name, icon, difficulty, done }) {
   const [{ data, loading, error }] = useAxios(
     `${BASE_URL}/question/groupid/${id}`
   );
 
-  // console.log(data);
-  if (loading) return <SpinnerComponent />
+  if (loading) return <SpinnerComponent />;
   if (error) return <h2>erro</h2>;
 
   let questionid = data?.id;

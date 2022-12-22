@@ -15,6 +15,7 @@ export function BoardQuestions() {
     }
   }, [url]);
 
+  
   return (
     <div className="Board">
       <h1>Questões</h1>

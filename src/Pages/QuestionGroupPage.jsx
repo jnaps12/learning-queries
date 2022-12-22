@@ -6,17 +6,14 @@ import { BASE_URL } from '../api/axios';
 import SpinnerComponent from '../components/SpinnerComponent';
 
 export function QuestionGroupPage() {
-
   const { questionid } = useParams();
 
   const [{ data, loading, error }] = useAxios(
     `${BASE_URL}/question/${questionid}`
   );
 
-  
-  if(error) return <h2>errou</h2>
-  if(loading) return <SpinnerComponent />
-
+  if (error) return <h2>errou</h2>;
+  if (loading) return <SpinnerComponent />;
 
   return (
     <>
