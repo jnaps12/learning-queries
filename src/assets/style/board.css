@@ -1,38 +1,42 @@
-.Board{
+.Board {
   margin-top: 30px;
 }
-.Board h1{
-  text-align: center;  
+
+.Board h1 {
+  text-align: center;
 }
 
-.Board h2{
+.Board h2 {
   text-align: center;
   width: 200px;
   margin: 0 auto;
   margin-bottom: 30px;
 }
 
-.question-card-link{
+.question-card-link {
   text-decoration: none;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  height: 7rem;
 }
 
-.card:hover{
+.card:hover {
   background-color: rgba(75, 75, 215, 0.632) !important;
   border-radius: 4px !important;
 }
 
-.card-body{
+.card-body {
   padding: 5px !important;
 }
 
-.card-title{
+.card-title {
   color: black !important;
   margin-bottom: 0px;
 }
 
-.question-groups{
+.question-groups {
   display: flex;
   justify-content: center;
+  gap: 1rem
 }
-
-

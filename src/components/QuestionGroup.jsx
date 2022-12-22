@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 export function QuestionGroup({ id, name, icon, difficulty, done, questionid }) {
 
 
-  function handleClick(){
+  function handleClick() {
     const data = {
       id: 1,
       query: 'Select * from Irineu',
@@ -20,16 +20,16 @@ export function QuestionGroup({ id, name, icon, difficulty, done, questionid }) 
 
   return (
     <Link className="question-card-link" to={`/questions/${difficulty}/${id}/question/${questionid}`} onClick={handleClick}>
-      <Card style={{ width: '6rem' }} className="text-center" border="primary">
+      <Card style={{ width: '8.5rem' }} className="text-center" border="primary">
         <Card.Img
           variant="top"
           src={icon}
           style={{ width: '3rem', margin: '5px auto 0 auto' }}
         />
-        <Card.Body>
-          <Card.Title>{name}</Card.Title>
+        <Card.Body >
+          <Card.Title >{name}</Card.Title>
         </Card.Body>
       </Card>
-    </Link>
+    </Link >
   );
 }
