@@ -21,14 +21,17 @@ import { Droppable } from '../utils/dndkit/Droppable';
 import SpinnerComponent from '../components/SpinnerComponent';
 import useAxios from 'axios-hooks';
 import { GenerateQuery } from '../api/data';
+import { BASE_URL } from '../api/axios';
 
 export function Question() {
   const navigate = useNavigate();
-  const { difficulty, groupid, questionid } = useParams();
+  const { difficulty, questionid } = useParams();
 
-  const [{ data, loading, error }, refetch] = useAxios(
-    'http://127.0.0.1:3000/question/2'
+  const [{ data, loading, error }] = useAxios(
+    `${BASE_URL}/question/${questionid}`
   );
+
+  console.log(data);
 
   const rightQuery = data ? data?.query.split(' ') : [];
   let query = GenerateQuery(rightQuery);
@@ -173,9 +176,9 @@ export function Question() {
           Query fazendo o que se pede.
         </Alert>
         <Figure align="center" className="question-image">
-          <Figure.Image alt="qualuqer" src="/exemplo.png" />
+          <Figure.Image alt="Imagem da tabela" src={data && data.thumbUrl} />
           <Figure.Caption>
-            Busque todos os dados da tabela “usuarios” :
+            {data && data.description}
           </Figure.Caption>
         </Figure>
         {incorrect && (

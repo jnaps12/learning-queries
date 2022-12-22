@@ -4,7 +4,6 @@ import { MainLayout } from '../layouts/MainLayout';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-import axios from '../api/axios';
 import { Link } from 'react-router-dom';
 
 const LOGIN_URL = '/auth';

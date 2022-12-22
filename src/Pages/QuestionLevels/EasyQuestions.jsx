@@ -1,11 +1,13 @@
 import { QuestionGroup } from '../../components/QuestionGroup';
 import SpinnerComponent from '../../components/SpinnerComponent';
 import useAxios from 'axios-hooks';
+import { BASE_URL } from '../../api/axios';
 
 export function EasyQuestions() {
   const [{ data, loading, error }, refetch] = useAxios(
-    'http://127.0.0.1:3000/question-group/difficulty/easy'
+    `${BASE_URL}/question-group/difficulty/easy`
   );
+
 
   if (error) return <h1>{error}</h1>;
 

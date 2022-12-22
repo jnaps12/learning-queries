@@ -1,46 +1,34 @@
 import { QuestionGroup } from '../../components/QuestionGroup';
+import useAxios from 'axios-hooks';
+import { BASE_URL } from '../../api/axios';
+import SpinnerComponent from '../../components/SpinnerComponent';
 
 export function IntermediaryQuestions() {
-  const items = [
-    {
-      id: '1',
-      name: 'select fasdf',
-      icon: 'https://www.svgrepo.com/show/430020/bat.svg',
-      difficulty: 'Intermediary',
-      done: '',
-      questionid: '1'
-    },
-    {
-      id: '2',
-      name: 'createfadsfasdf',
-      icon: 'https://www.svgrepo.com/show/430020/bat.svg',
-      difficulty: 'Intermediary',
-      done: '',
-      questionid: '2'
-    },
-    {
-      id: '3',
-      name: 'where',
-      icon: 'https://www.svgrepo.com/show/430020/bat.svg',
-      difficulty: 'Intermediary',
-      done: '',
-      questionid: '3'
-    }
-  ]
+  const [{ data, loading, error }] = useAxios(
+    `${BASE_URL}/question-group/difficulty/intermediary`
+  );
+
+  if (error) return <h1>{error}</h1>;
 
   return (
     <>
-      <h2 style={{ borderBottom: '1px solid blue' }}>Difícil</h2>
-      <div className="question-groups">
-        {items.map(item => <QuestionGroup
-          id={item.id}
-          name={item.name}
-          icon={item.icon}
-          difficulty={item.difficulty}
-          questionid={item.questionid}
-        />)}
-
-      </div>
+      <h2 style={{ borderBottom: '1px solid blue' }}>Intermediário</h2>
+      {loading ? (
+        <SpinnerComponent />
+      ) : (
+        <div className="question-groups">
+          {data.map((item) => (
+            <QuestionGroup
+              key={item.id}
+              id={item.id}
+              name={item.title}
+              icon={item.iconUrl}
+              difficulty={item.difficulty}
+              done={item.done}
+            />
+          ))}
+        </div>
+      )}
     </>
   );
 }
